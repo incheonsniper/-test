@@ -1,12 +1,13 @@
 const axios = require('axios');
 const xml2js = require('xml2js');
 const BasicKey = require('./authentication_key.json');
+const c = require('ansi-colors');
 
-const url = 'http://openapi.airport.co.kr/service/rest/AirportCodeList/getAirportCodeList';
-const queryParams = '?' + encodeURIComponent('serviceKey') + '=' + encodeURIComponent(BasicKey.key);
+let url = 'http://openapi.airport.co.kr/service/rest/AirportCodeList/getAirportCodeList';
+url += '?' + encodeURIComponent('serviceKey') + '=' + encodeURIComponent(BasicKey.key);
 
 function getFlightStatus() {
-  return axios.get(url + queryParams, { responseType: 'text' })
+  return axios.get(url, { responseType: 'text' })
     .then(response => {
       const data = response.data;
       if (data.trim().startsWith('<')) {
@@ -21,4 +22,5 @@ function getFlightStatus() {
       }
     });
 }
+
 module.exports = { getFlightStatus };

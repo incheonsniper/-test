@@ -1,4 +1,18 @@
+# Node.js 관련
 node_modules/
+dist/
+build/
+
+# IDE 설정
 .vscode/
-authentication_key.json/
-exit/
+.idea/
+
+# 로그 및 임시 파일
+*.log
+*.tmp
+
+# 보안 키
+authentication_key.json
+.env
+*.pem
+*.crt

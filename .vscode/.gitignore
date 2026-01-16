@@ -1,2 +1,4 @@
 node_modules/
 .vscode/
+authentication_key.json/
+exit/
